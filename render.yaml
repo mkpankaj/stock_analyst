@@ -33,4 +33,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: https://stock-analyst-api.onrender.com
+        value: https://stock-analyst-api-8hq1.onrender.com
