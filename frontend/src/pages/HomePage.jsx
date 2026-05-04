@@ -8,6 +8,7 @@ export default function HomePage() {
   const [analyzing, setAnalyzing] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [analysisDates, setAnalysisDates] = useState([]);
+  const [analysisError, setAnalysisError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,7 +47,11 @@ export default function HomePage() {
     try {
       const response = await analysisAPI.getStatus();
       if (response.data.status === 'completed') {
+        await loadAnalysisDates();
         await loadLatestAnalysis();
+        setAnalyzing(false);
+      } else if (response.data.status === 'failed') {
+        setAnalysisError(response.data.error || 'Process failed. Please retry');
         setAnalyzing(false);
       }
     } catch (err) {
@@ -55,11 +60,12 @@ export default function HomePage() {
   };
 
   const handleAnalyze = async () => {
+    setAnalysisError('');
     setAnalyzing(true);
     try {
       await analysisAPI.trigger();
     } catch (err) {
-      alert(err.response?.data?.detail || 'Failed to trigger analysis');
+      setAnalysisError(err.response?.data?.detail || 'Failed to trigger analysis');
       setAnalyzing(false);
     }
   };
@@ -148,6 +154,12 @@ export default function HomePage() {
           {analyzing && (
             <div className="mb-4 p-4 bg-blue-50 rounded-md">
               <p className="text-sm text-blue-800">Analysis in progress...</p>
+            </div>
+          )}
+
+          {analysisError && (
+            <div className="mb-4 p-4 bg-red-50 rounded-md">
+              <p className="text-sm font-medium text-red-800">{analysisError}</p>
             </div>
           )}
         </div>

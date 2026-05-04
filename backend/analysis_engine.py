@@ -79,7 +79,8 @@ def analyze_stocks(db: Session, tickers: list, duration_days: int) -> dict:
                 'close': [p.close for p in prices]
             })
 
-            coverage = len(prices_df) / duration_days
+            expected_trading_days = duration_days * 5 / 7
+            coverage = len(prices_df) / expected_trading_days
             if coverage < 0.8:
                 continue
 

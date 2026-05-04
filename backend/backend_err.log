@@ -1,4 +1,134 @@
-INFO:     Started server process [20312]
+INFO:     Started server process [13368]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+D:\code\stock_analyst\backend\main.py:73: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end_date = datetime.utcnow().date()
+$RELIANCE.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['RELIANCE.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$HDFCBANK.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['HDFCBANK.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$BHARTIARTL.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['BHARTIARTL.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$SBIN.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['SBIN.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ICICIBANK.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ICICIBANK.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$TCS.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['TCS.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$BAJFINANCE.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['BAJFINANCE.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$LT.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['LT.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$HINDUNILVR.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['HINDUNILVR.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$INFY.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['INFY.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$SUNPHARMA.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['SUNPHARMA.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$MARUTI.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['MARUTI.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ADANIPORTS.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ADANIPORTS.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$AXISBANK.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['AXISBANK.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ITC.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ITC.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$TITAN.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['TITAN.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$KOTAKBANK.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['KOTAKBANK.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ONGC.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ONGC.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ULTRACEMCO.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ULTRACEMCO.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ADANIENT.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ADANIENT.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$HCLTECH.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['HCLTECH.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$BEL.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['BEL.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$JSWSTEEL.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['JSWSTEEL.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$POWERGRID.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['POWERGRID.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$COALINDIA.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['COALINDIA.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$BAJAJ-AUTO.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['BAJAJ-AUTO.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$BAJAJFINSV.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['BAJAJFINSV.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$NESTLEIND.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['NESTLEIND.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$TATASTEEL.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['TATASTEEL.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+$ASIANPAINT.NS: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+
+1 Failed download:
+['ASIANPAINT.NS']: possibly delisted; no price data found  (1d 2026-05-01 -> 2026-05-04)
+D:\code\stock_analyst\backend\main.py:85: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = datetime.utcnow().date()
+D:\code\stock_analyst\backend\main.py:238: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end_date = datetime.utcnow().date()
+D:\code\stock_analyst\backend\main.py:238: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end_date = datetime.utcnow().date()
+D:\code\stock_analyst\backend\main.py:238: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  end_date = datetime.utcnow().date()

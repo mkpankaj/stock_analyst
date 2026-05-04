@@ -21,11 +21,12 @@ app = FastAPI()
 
 _cors_origins = os.getenv("CORS_ORIGINS", "*")
 _allow_origins = ["*"] if _cors_origins == "*" else _cors_origins.split(",")
+_allow_credentials = _allow_origins != ["*"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_allow_origins,
-    allow_credentials=True,
+    allow_credentials=_allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -33,6 +34,17 @@ app.add_middleware(
 init_db()
 
 ANALYSIS_STATUS = {}
+
+def _result_to_dict(r: AnalysisResult) -> dict:
+    return {
+        "ticker": r.ticker,
+        "rank_type": r.rank_type,
+        "rank": r.rank,
+        "price_change_pct": r.price_change_pct,
+        "trend_label": r.trend_label,
+        "price_d1": r.price_d1,
+        "price_d120": r.price_d120,
+    }
 
 def get_current_user(authorization: str = Header(None), db: Session = Depends(get_db)) -> TokenData:
     if not authorization:
@@ -184,8 +196,8 @@ def get_latest_analysis(current_user: TokenData = Depends(get_current_user), db:
 
     results = db.query(AnalysisResult).filter(AnalysisResult.analysis_run_id == analysis.id).all()
 
-    gainers = [r.__dict__ for r in results if r.rank_type == 'gainer']
-    losers = [r.__dict__ for r in results if r.rank_type == 'loser']
+    gainers = [_result_to_dict(r) for r in results if r.rank_type == 'gainer']
+    losers = [_result_to_dict(r) for r in results if r.rank_type == 'loser']
 
     return {
         "date": analysis.date.isoformat(),
@@ -212,8 +224,8 @@ def get_analysis_by_date(analysis_date: str, db: Session = Depends(get_db)):
 
     results = db.query(AnalysisResult).filter(AnalysisResult.analysis_run_id == analysis.id).all()
 
-    gainers = [r.__dict__ for r in results if r.rank_type == 'gainer']
-    losers = [r.__dict__ for r in results if r.rank_type == 'loser']
+    gainers = [_result_to_dict(r) for r in results if r.rank_type == 'gainer']
+    losers = [_result_to_dict(r) for r in results if r.rank_type == 'loser']
 
     return {
         "date": analysis.date.isoformat(),

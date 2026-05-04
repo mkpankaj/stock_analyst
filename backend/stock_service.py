@@ -5,36 +5,14 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 NIFTY_50 = [
-    'RELIANCE.NS', 'TCS.NS', 'INFOSYS.NS', 'HDFC.NS', 'ICICIBANK.NS',
-    'SBIN.NS', 'BAJAJFINSV.NS', 'LT.NS', 'HCLTECH.NS', 'WIPRO.NS',
-    'MARUTI.NS', 'SUNPHARMA.NS', 'TECHM.NS', 'BAJAJFEETSOP.NS', 'INDUSINDBANK.NS',
-    'ITC.NS', 'HEROMOTOCO.NS', 'TITAN.NS', 'NESTLEIND.NS', 'ASIANPAINT.NS',
-    'KOTAKBANK.NS', 'DMART.NS', 'AXISBANK.NS', 'JSWSTEEL.NS', 'ULTRACEMCO.NS',
-    'HINDUNILVR.NS', 'BEL.NS', 'GAIL.NS', 'POWERGRID.NS', 'HAL.NS',
-    'ONGC.NS', 'TATASTEEL.NS', 'M&MFSL.NS', 'DRREDDY.NS', 'BHARTIARTL.NS',
-    'COALINDIA.NS', 'HDFCBANK.NS', 'PCHRANDRYS.NS', 'BRITANNIA.NS', 'MRF.NS',
-    'BOSCHLTD.NS', 'BAJAJ-AUTO.NS', 'EICHERMOT.NS', 'GICRE.NS', 'SIEMENS.NS',
-    'MAHSCOOTER.NS', 'BPCL.NS', 'TORNTPHARM.NS', 'IPCALAB.NS', 'ADANIPORTS.NS'
+    'RELIANCE.NS', 'HDFCBANK.NS', 'BHARTIARTL.NS', 'SBIN.NS', 'ICICIBANK.NS','TCS.NS', 
+    'BAJFINANCE.NS', 'LT.NS', 'HINDUNILVR.NS', 'INFY.NS', 'SUNPHARMA.NS', 'MARUTI.NS',
+    'ADANIPORTS.NS', 'AXISBANK.NS', 'ITC.NS', 'TITAN.NS', 'KOTAKBANK.NS', 'ONGC.NS',
+    'ULTRACEMCO.NS', 'ADANIENT.NS', 'HCLTECH.NS', 'BEL.NS', 'JSWSTEEL.NS', 'POWERGRID.NS',
+    'COALINDIA.NS', 'BAJAJ-AUTO.NS', 'BAJAJFINSV.NS', 'NESTLEIND.NS',  'TATASTEEL.NS', 
+    'ASIANPAINT.NS', 
 ]
-
-NIFTY_NEXT_50 = [
-    'ADANIGREEN.NS', 'AMBUJACEM.NS', 'APOLLOHOSP.NS', 'BAJAJHLDNG.NS', 'BAJFINANCE.NS',
-    'BANKBARODA.NS', 'BERGEPAINT.NS', 'CGPOWER.NS', 'CHOLAFIN.NS', 'COLPAL.NS',
-    'DABUR.NS', 'DLF.NS', 'DIVISLAB.NS', 'GODREJCP.NS', 'GODREJPROP.NS',
-    'HAVELLS.NS', 'HDFCLIFE.NS', 'HINDPETRO.NS', 'ICICIPRULI.NS', 'INDHOTEL.NS',
-    'INDUSTOWER.NS', 'IOC.NS', 'IRCTC.NS', 'JINDALSTEL.NS', 'LTIM.NS',
-    'LUPIN.NS', 'MANKIND.NS', 'MARICO.NS', 'MUTHOOTFIN.NS', 'NAUKRI.NS',
-    'NHPC.NS', 'NMDC.NS', 'OFSS.NS', 'PERSISTENT.NS', 'PIDILITIND.NS',
-    'POLYCAB.NS', 'RECLTD.NS', 'SBICARD.NS', 'SBILIFE.NS', 'SHREECEM.NS',
-    'SRF.NS', 'TATAELXSI.NS', 'TATAPOWER.NS', 'TORNTPOWER.NS', 'TVSMOTOR.NS',
-    'UNITDSPR.NS', 'VBL.NS', 'VEDL.NS', 'VOLTAS.NS', 'ZYDUSLIFE.NS',
-]
-
-NIFTY_100 = NIFTY_50 + NIFTY_NEXT_50
-
 def get_stock_universe(stock_universe_str: str) -> list:
-    if stock_universe_str == "NIFTY_100":
-        return NIFTY_100
     return NIFTY_50
 
 def get_last_fetch_date(db: Session, ticker: str) -> datetime.date:
@@ -70,7 +48,11 @@ def fetch_stock_data(db: Session, tickers: list, start_date: datetime.date, end_
                 results[ticker] = "No data"
                 continue
 
+            if isinstance(data.columns, pd.MultiIndex):
+                data.columns = data.columns.get_level_values(0)
+
             if isinstance(data.index, pd.DatetimeIndex):
+                data = data.dropna(subset=['Open', 'High', 'Low', 'Close'])
                 for idx, row in data.iterrows():
                     price_date = idx.date() if hasattr(idx, 'date') else idx
                     existing = db.query(StockPrice).filter(
