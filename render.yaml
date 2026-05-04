@@ -21,8 +21,9 @@ services:
       - key: CORS_ORIGINS
         value: https://stock-analyst-ui.onrender.com
 
-  - type: static
+  - type: web
     name: stock-analyst-ui
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
